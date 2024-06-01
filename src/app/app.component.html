@@ -2,59 +2,26 @@
   <div class="container-fluid container-plus">
     <div id="js-header" class="row m-0 p-0">
       <div class="col m-0 p-0">
-        <js-header></js-header>
+        <js-splash></js-splash>
       </div>
     </div>
     <div id="js-nav" class="row">
-      <div class="col align-content-center">
-        <div class="dropdown dropdown-plus">
-          <button class="btn btn-sm" title="menu"
-                  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <mat-icon aria-hidden="false" aria-label="menu" fontIcon="menu"></mat-icon>
-          </button>
-          <ul class="dropdown-menu dropdow-menu-plus">
-            <li>
-              <a class="menu-link" href="#js-whoami">
-              <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_right">
-              </mat-icon> Who Am I ?</a>
-            </li>
-            <li>
-              <a class="menu-link" href="#js-cv">
-              <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_right">
-              </mat-icon>Curriculum Vitae - Min</a>
-            </li>
-            <li>
-              <a class="menu-link" href="#js-contact">
-              <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_right"></mat-icon>
-              Contact
-            </a>
-            </li>
-          </ul>
-        </div>
-
+      <div class="col d-flex justify-content-center nav-menu">
+        <app-nav-menu></app-nav-menu>
       </div>
     </div>
     <div id="js-whoami" class="row">
-      <div class="col">
-        <!-- Who Am I -->
+      <div class="col p-2">
         <js-who-am-i></js-who-am-i>
       </div>
     </div>
     <div id="js-cv" class="row">
-      <div class="col">
-        <!-- Curriculum Vitae -->
-        <a href="#" title="return to top">
-          <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_drop_up"></mat-icon>
-        </a>
+      <div class="col  p-2">
         <js-curriculum></js-curriculum>
       </div>
     </div>
     <div id="js-contact" class="row">
-      <div class="col">
-        <!-- Contact -->
-        <a href="#" title="return to top">
-          <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_drop_up"></mat-icon>
-        </a>
+      <div class="col p-2">
         <js-contact></js-contact>
       </div>
     </div>

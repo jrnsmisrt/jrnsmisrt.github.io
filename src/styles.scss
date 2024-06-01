@@ -8,14 +8,17 @@ body {
 
 .container-plus {
   //border: 1px red solid;
-  margin: 2px 2px 2px 2px;
+  margin: 0;
   padding: 0;
 }
 
-.dropdown-plus {
+.nav-menu{
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.dropdow-menu-plus {
+.dropdown-menu-plus {
   padding: 20px
 }
 
@@ -24,6 +27,7 @@ body {
   text-decoration: none;
 }
 
+//SPLASH
 .full-name {
   color: orange;
   font-size: larger;
@@ -35,7 +39,7 @@ body {
   font-style: italic;
 }
 
-.header-container {
+.splash-container {
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -43,7 +47,7 @@ body {
   background-color: $dark-bg-subtle-dark;
 
 
-  .header-main-col {
+  .splash-main-col {
     margin: 2px;
     padding: 2px;
     height: 100%;
@@ -70,4 +74,25 @@ body {
     margin: 5px 0 0 5px;
     text-align: center;
   }
+}
+.js-section{
+  border: 1px solid mix(white, black,60%);
+  border-radius: 0.5vi;
+
+  .section-title-bg {
+    margin: 0;
+    padding-left: 10px;
+    width: 100%;
+    height: fit-content;
+    background-color: mix(darkorange, black,90%);
+  }
+}
+
+.row{
+  margin:0;
+  padding:0;
+}
+.col {
+  margin:0;
+  padding:0;
 }
