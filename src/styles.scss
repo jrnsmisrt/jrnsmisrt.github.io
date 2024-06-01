@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap.scss";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+body {
+  font-family: Segoe UI, sans-serif;
+  font-size: 0.8rem;
+}
+
+.container-plus {
+  //border: 1px red solid;
+  margin: 2px 2px 2px 2px;
+  padding: 0;
+}
+
+.dropdown-plus {
+}
+
+.dropdow-menu-plus {
+  padding: 20px
+}
+
+.menu-link {
+  color: $light;
+  text-decoration: none;
+}
+
+.full-name {
+  color: orange;
+  font-size: larger;
+  //font-weight: bold;
+}
+
+.pop-word {
+  color: darkorange;
+  font-style: italic;
+}
+
+.header-container {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: $dark-bg-subtle-dark;
+
+
+  .header-main-col {
+    margin: 2px;
+    padding: 2px;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+  }
+
+  .welcome {
+    margin: 0;
+    padding: 2vi;
+    //border: 1px solid orange;
+    text-align: right;
+    //text-align: center;
+
+    //background-color: mix($gray-900, $black);
+    //background-color: $dark-bg-subtle-dark;
+
+  }
+
+  .view-more {
+    width: 100%;
+    max-height: max-content;
+    padding: 0;
+    margin: 5px 0 0 5px;
+    text-align: center;
+  }
+}
