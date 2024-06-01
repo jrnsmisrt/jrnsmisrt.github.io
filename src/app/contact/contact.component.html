@@ -1,7 +1,7 @@
 <div class="container-fluid js-section">
   <div class="row">
     <div class="col">
-      <a href="#" title="return to top">
+      <a role="button" class="btn btn-sm" href="#" title="return to top">
         <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_drop_up"></mat-icon>
       </a>
       <h5 class="w-100"><span class="section-title-bg me-2"></span>Contact</h5>
@@ -9,10 +9,26 @@
   </div>
   <div class="row">
     <div class="col">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae consequatur corporis culpa dicta
-        dignissimos distinctio, earum eveniet excepturi labore mollitia nemo nulla odio omnis pariatur porro sapiente
-        veritatis voluptates.
-      </p>
+      <form>
+        <div class="form-group">
+          <label for="firstname-input">Firstname</label>
+          <input type="text" class="form-control" id="firstname-input" placeholder="John/Jane">
+        </div>
+        <div class="form-group mt-2">
+          <label for="lastname-input">Lastname</label>
+          <input type="text" class="form-control" id="lastname-input" placeholder="Doe">
+        </div>
+        <div class="form-group  mt-2">
+          <label for="email-input">Email address</label>
+          <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group  mt-2">
+          <label for="message-input">Message</label>
+          <textarea type="text" class="form-control" id="message-input" placeholder="Enter your message"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-dark btn-outline-light mt-3 mb-3" >Submit</button>
+      </form>
     </div>
   </div>
 </div>
