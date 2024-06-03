@@ -78,7 +78,9 @@ body {
 }
 .js-section{
   width: 100%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
   border: 1px solid mix(white, black,60%);
   border-radius: 0.5vi;
 
