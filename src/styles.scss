@@ -77,6 +77,8 @@ body {
   }
 }
 .js-section{
+  width: 100%;
+  margin: auto;
   border: 1px solid mix(white, black,60%);
   border-radius: 0.5vi;
 
@@ -101,10 +103,17 @@ body {
 @media only screen
 and (min-device-width : 768px) {
   .container-plus{
-    width: 80vw;
+    //width: 80vw;
     margin: auto;
   }
   .js-section{
+    width: 60%;
     border: none;
+  }
+
+  .splash-container{
+    .splash-main-col{
+      max-width: 50%;
+    }
   }
 }
