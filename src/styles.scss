@@ -1,6 +1,7 @@
 @import "bootstrap/scss/bootstrap.scss";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
+
 body {
   font-family: Segoe UI, sans-serif;
   font-size: 0.8rem;
@@ -95,4 +96,15 @@ body {
 .col {
   margin:0;
   padding:0;
+}
+
+@media only screen
+and (min-device-width : 768px) {
+  .container-plus{
+    width: 80vw;
+    margin: auto;
+  }
+  .js-section{
+    border: none;
+  }
 }
