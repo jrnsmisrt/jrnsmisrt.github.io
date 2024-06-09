@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'js-contact',
@@ -18,25 +19,83 @@ import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angula
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm = new FormBuilder().group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(6)]],
   })
-  constructor(private formBuilder: FormBuilder){
+
+  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) {
   }
 
-  submit(){
+  ngOnInit() {
 
+  }
+
+  submit() {
+    if (this.isFormValid()) {
+      const emailBody = `FROM:\t${this.contactForm.get('email')}\n
+      FIRSTNAME:\t${this.contactForm.get('firstName')}\n
+      LASTNAME:\t${this.contactForm.get('firstName')}\n\n
+      MESSAGE:\t${this.contactForm.get('message')}
+      `;
+      const emailUrl = `mailto:jeroen.smissaert@hotmail.com?subject=Contact From WebFolio &body=${emailBody}`;
+      this.httpClient.get(emailUrl);
+    }
+  }
+
+  isFormValid(): boolean {
+    this.contactForm.markAsDirty();
+    console.log('hello')
+
+    if (this.contactForm.get('firstName')?.valid) {
+      document.body.querySelector('#firstname-input')!.classList.add('was-validated');
+    } else {
+      document.body.querySelector('#firstname-input')!.classList.remove('was-validated');
+    }
+
+    if (this.contactForm.get('lastName')?.valid) {
+      document.body.querySelector('#lastname-input')!.classList.add('was-validated');
+    } else {
+      document.body.querySelector('#lastname-input')!.classList.remove('was-validated');
+    }
+
+    if (this.contactForm.get('email')?.valid) {
+      document.body.querySelector('#email-input')!.classList.add('was-validated');
+    } else {
+      document.body.querySelector('#email-input')!.classList.remove('was-validated');
+    }
+
+    if (this.contactForm.get('message')?.valid) {
+      document.body.querySelector('#message-input')!.classList.add('was-validated');
+    } else {
+      document.body.querySelector('#message-input')!.classList.remove('was-validated');
+    }
+
+    const formIsValid = this.contactForm.valid;
+
+    if (formIsValid) {
+      document.body.querySelector('#form-submit')!.classList.add('was-validated', 'submit');
+    } else {
+      document.body.querySelector('#form-submit')!.classList.remove('was-validated', 'submit');
+    }
+    return this.contactForm.valid;
   }
 
   get firstName(): string {
     return this.contactForm.get('firstName')?.value!;
   }
+
   get lastName(): string {
     return this.contactForm.get('lastName')?.value!;
   }
+
+  get email(): string {
+    return this.contactForm.get('email')?.value!;
+  }
+
   get message(): string {
     return this.contactForm.get('message')?.value!;
   }

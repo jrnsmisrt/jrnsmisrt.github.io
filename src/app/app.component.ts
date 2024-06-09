@@ -7,6 +7,7 @@ import {MatIcon} from "@angular/material/icon";
 import {SplashComponent} from "./header/splash.component";
 import {NavMenuComponent} from "./nav-menu/nav-menu.component";
 import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',

@@ -12,22 +12,23 @@
       <form [formGroup]="contactForm">
         <div class="form-group">
           <label for="firstname-input">Firstname</label>
-          <input type="text" class="form-control" id="firstname-input" placeholder="John/Jane">
+          <input [formControlName]="'firstName'" type="text" class="form-control" id="firstname-input" placeholder="Enter firstname">
         </div>
         <div class="form-group mt-2">
           <label for="lastname-input">Lastname</label>
-          <input type="text" class="form-control" id="lastname-input" placeholder="Doe">
+          <input [formControlName]="'lastName'" type="text" class="form-control" id="lastname-input" placeholder="Enter lastname">
         </div>
         <div class="form-group  mt-2">
           <label for="email-input">Email address</label>
-          <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter email">
+          <input [formControlName]="'email'" type="email" class="form-control" id="email-input" placeholder="Enter email">
         </div>
         <div class="form-group  mt-2">
           <label for="message-input">Message</label>
-          <textarea type="text" class="form-control" id="message-input" placeholder="Enter your message"></textarea>
+          <textarea [formControlName]="'message'" type="text" class="form-control" id="message-input" placeholder="Enter message"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-sm btn-dark btn-outline-light mt-3 mb-3" >Submit</button>
+        <button id="form-submit" type="submit" class="btn btn-sm btn-dark btn-outline-light mt-3 mb-3"
+        [disabled]="!isFormValid()">Submit</button>
       </form>
     </div>
   </div>
