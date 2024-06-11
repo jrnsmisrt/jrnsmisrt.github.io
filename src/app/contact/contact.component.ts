@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'js-contact',
@@ -48,7 +48,6 @@ export class ContactComponent implements OnInit {
 
   isFormValid(): boolean {
     this.contactForm.markAsDirty();
-    console.log('hello')
 
     if (this.contactForm.get('firstName')?.valid) {
       document.body.querySelector('#firstname-input')!.classList.add('was-validated');
