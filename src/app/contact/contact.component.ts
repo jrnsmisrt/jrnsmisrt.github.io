@@ -20,12 +20,13 @@ import {HttpClient} from "@angular/common/http";
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
+  private mails: { subject: string, from: string, body: string }[] = [];
   contactForm = new FormBuilder().group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     message: ['', [Validators.required, Validators.minLength(6)]],
-  })
+  });
 
   constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) {
   }
@@ -36,14 +37,31 @@ export class ContactComponent implements OnInit {
 
   submit() {
     if (this.isFormValid()) {
-      const emailBody = `FROM:\t${this.contactForm.get('email')}\n
-      FIRSTNAME:\t${this.contactForm.get('firstName')}\n
-      LASTNAME:\t${this.contactForm.get('firstName')}\n\n
-      MESSAGE:\t${this.contactForm.get('message')}
-      `;
-      const emailUrl = `mailto:jeroen.smissaert@hotmail.com?subject=Contact From WebFolio &body=${emailBody}`;
-      this.httpClient.get(emailUrl);
+      // const emailBody = `FROM:\t${this.contactForm.get('email')}\n
+      // FIRSTNAME:\t${this.contactForm.get('firstName')}\n
+      // LASTNAME:\t${this.contactForm.get('firstName')}\n\n
+      // MESSAGE:\t${this.contactForm.get('message')}
+      // `;
+      // const emailUrl = `mailto:jeroen.smissaert@hotmail.com?subject=Contact From WebFolio &body=${emailBody}`;
+      // this.httpClient.get(emailUrl);
+
+      //Temp save to object
+      const mailBody = `sender info: \n
+      ${this.firstName} ${this.lastName} \n
+      message: \n
+      ${this.message}`;
+
+      const mail = {
+        subject: 'Contact From smisrt.be',
+        from: this.email,
+        body: mailBody
+      }
+
+      //save mail to array
+      this.mails.push(mail);
     }
+
+    console.log(this.mails);
   }
 
   isFormValid(): boolean {
