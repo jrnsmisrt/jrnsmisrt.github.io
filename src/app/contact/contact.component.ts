@@ -20,7 +20,11 @@ import {HttpClient} from "@angular/common/http";
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
-  private mails: { subject: string, from: string, body: string }[] = [];
+  private mails: {
+    subject: string,
+    from: string,
+    body: { firstName: string, lastName: string, message: string }
+  }[] = [];
   contactForm = new FormBuilder().group({
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
@@ -46,10 +50,11 @@ export class ContactComponent implements OnInit {
       // this.httpClient.get(emailUrl);
 
       //Temp save to object
-      const mailBody = `sender info: \n
-      ${this.firstName} ${this.lastName} \n
-      message: \n
-      ${this.message}`;
+      const mailBody = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        message: this.message
+      }
 
       const mail = {
         subject: 'Contact From smisrt.be',

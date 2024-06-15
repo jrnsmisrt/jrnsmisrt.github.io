@@ -9,26 +9,31 @@
   </div>
   <div class="row">
     <div class="col">
-      <form [formGroup]="contactForm">
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
         <div class="form-group">
           <label for="firstname-input">Firstname</label>
-          <input [formControlName]="'firstName'" type="text" class="form-control" id="firstname-input" placeholder="Enter firstname">
+          <input [formControlName]="'firstName'" type="text" class="form-control" id="firstname-input"
+                 placeholder="Enter firstname">
         </div>
         <div class="form-group mt-2">
           <label for="lastname-input">Lastname</label>
-          <input [formControlName]="'lastName'" type="text" class="form-control" id="lastname-input" placeholder="Enter lastname">
+          <input [formControlName]="'lastName'" type="text" class="form-control" id="lastname-input"
+                 placeholder="Enter lastname">
         </div>
         <div class="form-group  mt-2">
           <label for="email-input">Email address</label>
-          <input [formControlName]="'email'" type="email" class="form-control" id="email-input" placeholder="Enter email">
+          <input [formControlName]="'email'" type="email" class="form-control" id="email-input"
+                 placeholder="Enter email">
         </div>
         <div class="form-group  mt-2">
           <label for="message-input">Message</label>
-          <textarea [formControlName]="'message'" type="text" class="form-control" id="message-input" placeholder="Enter message"></textarea>
+          <textarea [formControlName]="'message'" type="text" class="form-control" id="message-input"
+                    placeholder="Enter message"></textarea>
         </div>
 
         <button id="form-submit" type="submit" class="btn btn-sm btn-dark btn-outline-light mt-3 mb-3"
-        [disabled]="!isFormValid()">Submit</button>
+                [disabled]="!isFormValid()">Submit
+        </button>
       </form>
     </div>
   </div>
