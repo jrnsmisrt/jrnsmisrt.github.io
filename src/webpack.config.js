@@ -6,15 +6,14 @@ module.exports = {
       "path": require.resolve("path"),
       "tls": require.resolve("tls"),
       "net": require.resolve("net"),
-      "os": require.resolve("os-browserify"),
-      "crypto": require.resolve("crypto-browserify"),
       "querystring": require.resolve("querystring-es3"),
+      "crypto": require.resolve('crypto-browserify'),
+      "https": require.resolve('https-browserify'),
+      "os": require.resolve('os-browserify/browser'),
     }
   },
   // Other rules...
   plugins: [
-    new NodePolyfillPlugin({
-      additionalAliases: ['os', 'crypto', 'querystring' ,'https', 'path']
-    }),
+    new NodePolyfillPlugin(),
   ],
 };
