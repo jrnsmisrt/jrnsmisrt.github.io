@@ -4,7 +4,6 @@ import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import 'dotenv/config';
 import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 @Component({

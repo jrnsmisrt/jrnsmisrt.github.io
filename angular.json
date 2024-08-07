@@ -15,15 +15,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
+
             "allowedCommonJsDependencies": [
               "lodash"
             ],
-            "outputPath": "dist/jeroen-smissaert",
+
+            "outputPath": {
+              "base": "dist/jeroen-smissaert"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
             "polyfills": [
+              "/src/polyfills.ts",
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
@@ -39,7 +43,10 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./src/styles.scss"
             ],
-            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.js"]
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+            ],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -90,7 +97,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "src/polyfills.ts",
               "zone.js",
               "zone.js/testing"
             ],
