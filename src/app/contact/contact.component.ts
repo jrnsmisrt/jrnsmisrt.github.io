@@ -4,7 +4,6 @@ import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
 @Component({
   selector: 'js-contact',
@@ -40,7 +39,7 @@ export class ContactComponent implements OnInit {
 
   }
 
-  async submit() {
+  submit() {
     if (this.isFormValid()) {
       // const emailBody = `FROM:\t${this.contactForm.get('email')}\n
       // FIRSTNAME:\t${this.contactForm.get('firstName')}\n
@@ -51,42 +50,23 @@ export class ContactComponent implements OnInit {
       // this.httpClient.get(emailUrl);
 
       //Temp save to object
-      // const mailBody = {
-      //   firstName: this.firstName,
-      //   lastName: this.lastName,
-      //   message: this.message
-      // }
-      //
-      // const mail = {
-      //   subject: 'Contact From smisrt.be',
-      //   from: this.email,
-      //   body: mailBody
-      // }
-      //
-      // //save mail to array
-      // this.mails.push(mail);
+      const mailBody = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        message: this.message
+      }
 
-      const mailerSend = new MailerSend({
-        apiKey: 'mlsn.0fe7436810aca321514866aecdcf44e46cee6d6cbfb377524652ba9fcb466505',
-      });
+      const mail = {
+        subject: 'Contact From smisrt.be',
+        from: this.email,
+        body: mailBody
+      }
 
-      const sentFrom = new Sender(this.email, `${this.firstName} ${this.lastName}`);
-
-      const recipients = [
-        new Recipient("jeroen.smissaert@gmail.com", "Jeroen Smissaert")
-      ];
-
-      const emailParams = new EmailParams()
-        .setFrom(sentFrom)
-        .setTo(recipients)
-        .setReplyTo(sentFrom)
-        .setSubject('Contact From smisrt.be')
-        .setHtml(`<strong>${this.message}</strong>`)
-        .setText(`${this.message}`);
-
-      await mailerSend.email.send(emailParams);
+      //save mail to array
+      this.mails.push(mail);
     }
 
+    console.log(this.mails);
   }
 
   isFormValid(): boolean {
