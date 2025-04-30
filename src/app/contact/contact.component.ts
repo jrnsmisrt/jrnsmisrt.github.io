@@ -66,7 +66,6 @@ export class ContactComponent implements OnInit {
       this.mails.push(mail);
     }
 
-    console.log(this.mails);
   }
 
   isFormValid(): boolean {
